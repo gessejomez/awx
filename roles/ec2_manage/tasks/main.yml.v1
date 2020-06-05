@@ -1,0 +1,11 @@
+---
+# the ec2_state gets set in ../defaults/main.yml
+- include_tasks: launch.yml
+  when: "ec2_state == 'create'"
+
+
+- include_tasks: absent.yml
+  when: "ec2_state == 'terminate'"
+
+- include_tasks: stopped.yml
+  when: "ec2_state == 'stop'"

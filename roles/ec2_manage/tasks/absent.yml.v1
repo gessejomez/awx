@@ -1,0 +1,7 @@
+---
+# the ec2_server_* vars come from ../defaults/main.yml
+
+- name: Remove EC2 instance(s)
+  ec2_instance:
+    region: '{{ ec2_server_region }}'
+    state: absent

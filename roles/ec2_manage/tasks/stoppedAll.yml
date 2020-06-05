@@ -1,0 +1,5 @@
+--- 
+- name: Stop all EC2 instances
+  ec2_instance: 
+    region: "{{ ec2_server_region }}"
+    state: stopped

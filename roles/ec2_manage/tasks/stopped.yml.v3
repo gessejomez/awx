@@ -1,0 +1,8 @@
+---
+# the ec2_server_* vars come from ../defaults/main.yml
+
+- include_tasks: stoppedAll.yml
+  when: ec2_instance_id == ''
+
+- include_tasks: stoppedX.yml
+  when: ec2_instance_id != ''

@@ -1,0 +1,5 @@
+---
+- name: Manager EC2 Servers - launch, stop, terminate
+  hosts: localhost
+  roles:
+    - role: ec2_manage
