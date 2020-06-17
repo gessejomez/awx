@@ -1,3 +1,5 @@
+view this file raw
+
 create links to the correct playbooks;
 
 for example:
