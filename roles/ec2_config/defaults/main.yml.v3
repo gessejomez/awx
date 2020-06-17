@@ -1,0 +1,38 @@
+---
+# used in:  main.yml, cre8afile.yml, permitrootlogin.yml
+# options:  cre8afile, PermitRootLogin, install, update, service 
+# ec2_config_mod: "cre8afile"
+# set to null because even user selection would not change this value...
+ec2_config_mod: ""
+
+# used in cre8afile.yml
+ec2_config_path: "/home/ec2-user/HelloWorld/HelloAgain/"
+ec2_config_dest: "HelloAgainWorld.txt"
+ec2_config_message: "Hello Again World!"
+
+# used in:  yum.yml
+# options:  httpd, epel-release
+# ec2_config_package: 'httpd'
+# set to null because even user selection would not change this value...
+ec2_config_package: ""
+
+# used in:  service.yml
+# options:  network.service, nfs.service 
+ec2_config_service: 'network.service'
+
+# used in permitrootlogin.yml
+ec2_config_prl_path: "/etc/ssh/sshd_config"
+ec2_config_prl_old: "PermitRootLogin yes"
+ec2_config_prl_new: "PermitRootLogin no"
+
+ec2_config_state: present
+
+required_vars:
+  - ec2_config_path
+  - ec2_config_dest
+  - ec2_config_message
+  - ec2_config_prl_path
+  - ec2_config_prl_old
+  - ec2_config_prl_new
+  - ec2_config_state
+  - ec2_config_service

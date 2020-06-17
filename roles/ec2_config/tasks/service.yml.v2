@@ -1,0 +1,10 @@
+---
+- debug: var=ec2_config_mod
+
+- debug: var=ec2_config_service
+
+- name: Restart service 
+  become_user: root
+  service:
+    name: "{{ ec2_config_service }}"
+    state: restarted

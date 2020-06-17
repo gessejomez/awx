@@ -1,0 +1,23 @@
+---
+  - name: AWX playbook 2 cre8 /tmp/mastery/mastery.txt
+    hosts: localhost
+    connection: local
+    tasks:
+
+    - name: Create dir /tmp/mastery
+      file:
+        path: /tmp/mastery
+        state: directory
+
+    - name: create mastery.txt with sample text
+      lineinfile:
+        path: /tmp/mastery/mastery.txt
+        line: 'Created /tmp/master/mastery.txt with Ansible!'
+        create: yes
+
+
+    - name: "long listing of all files with human readable size /tmp/mastery/"
+      shell: "ls -lah /tmp/mastery/"
+      register: "output"
+
+    - debug: var=output.stdout_lines

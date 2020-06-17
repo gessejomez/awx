@@ -1,0 +1,12 @@
+---
+  - name: Configure EC2 Hostname
+    hosts: localhost
+    gather_facts: false
+    tasks:
+
+    - name: update permitrootlogin
+      lineinfile:
+        dest: '{{ ec2_config_path }}' 
+        regexp: '{{ ec2_config_regexp }}'
+        line: '{{ ec2_config_line }}'
+        state: '{{ ec2_config_state }}'

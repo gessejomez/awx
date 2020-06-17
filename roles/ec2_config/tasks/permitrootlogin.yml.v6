@@ -1,0 +1,29 @@
+---
+- name: "OLD setting for PermitRootLogin:"
+  shell: "grep PermitRootLogin /etc/ssh/sshd_config"
+  register: "output"
+  become_user: root
+
+- debug: var=output.stdout_lines
+
+- name: "Backup the current file"
+  shell: "cp /etc/ssh/sshd_config /etc/ssh/sshd_config-$(date +%Y-%m-%d)"
+  register: "output"
+  become_user: root
+
+- debug: var=output.stdout_lines
+
+- name: Configure permitrootlogin no
+  lineinfile:
+    path: "{{ ec2_config_prl_path }}"
+    regexp: "{{ ec2_config_prl_old }}"
+    line: "{{ ec2_config_prl_new }}"
+    state: present
+  become_user: root
+
+- name: "NEW setting for PermitRootLogin:"
+  shell: "grep PermitRootLogin /etc/ssh/sshd_config"
+  register: "output"
+  become_user: root
+
+- debug: var=output.stdout_lines

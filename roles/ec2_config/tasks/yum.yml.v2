@@ -1,0 +1,18 @@
+---
+# state: latest will do both both yum install and update of a package
+- debug: var=ec2_config_mod
+
+- debug: var=ec2_config_package
+
+- name: "yum install <package>"
+  yum:
+    name: "{{ ec2_config_package }}"
+    state: latest
+  when: ec2_config_mod == 'install' and ec2_config_package != ''
+
+- name: "yum update"
+  yum:
+    name: '*'
+    state: latest
+  when: ec2_config_mod == 'update' and ec2_config_package == ''
+

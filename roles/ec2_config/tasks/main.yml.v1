@@ -1,0 +1,8 @@
+---
+# the ec2_config_mod gets set in ../defaults/main.yml
+- include_tasks: permitrootlogin.yml
+  when: "ec2_config_mod == 'permitrootlogin'"
+
+- include_tasks: cre8afile.yml
+  when: "ec2_config_mod == 'cre8afile'"
+

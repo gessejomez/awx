@@ -1,0 +1,19 @@
+---
+# the ec2_config_mod gets set in ../defaults/main.yml
+- debug: var=ec2_config_mod
+
+- include_tasks: permitrootlogin.yml
+  when: "ec2_config_mod == 'permitrootlogin'"
+
+- include_tasks: cre8afile.yml
+  when: "ec2_config_mod == 'cre8afile'"
+
+- include_tasks: yum.yml
+  when: "ec2_config_mod == 'install'"
+
+- include_tasks: service.yml
+  when: "ec2_config_mod == 'service'"
+
+- include_tasks: yum.yml
+  when: "ec2_config_mod == 'update'"
+

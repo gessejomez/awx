@@ -1,0 +1,19 @@
+---
+- name: Configure permitrootlogin no
+  hosts: localhost
+  gather_facts: false
+  become: true
+  tasks:
+
+- name: Gather information about all instances
+  ec2_instance_info:
+    region: "us-west-1"
+  
+- name: update permitrootlogin
+  lineinfile:
+    path: "/etc/ssh/sshd_config"
+    regexp: "PermitRootLogin yes"
+    line: "PermitRootLogin no"
+    state: present
+  debug: msg={{ ec2_instance_info.instance_ID }}
+  loop: "{{ ec2_instance_info.instances }}"

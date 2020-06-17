@@ -1,0 +1,19 @@
+---
+# v5
+# Create dir /home/ec2-user/HelloWorld/HelloAgain
+- name: create directory
+  file:
+    path: "{{ ec2_config_path }}"
+    state: directory
+
+- name: create mastery.txt with sample text
+  lineinfile:
+    dest: "{{ ec2_config_dest }}" 
+    line: "{{ ec2_config_message }}"
+    create: yes
+
+- name: "long listing of all files with human readable size /home/ec2-user/"
+  shell: "hostname && ls -lhR /home/ec2-user/"
+  register: "output"
+
+- debug: var=output.stdout_lines

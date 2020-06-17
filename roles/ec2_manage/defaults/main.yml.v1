@@ -1,0 +1,21 @@
+---
+ec2_state: launch
+ec2_server_instcount: 1
+ec2_server_instance_type: 't3a.nano'
+
+# AMI ids 
+# Amazon Linux 2 AMI (HVM), SSD Volume Type: 'ami-0323c3dd2da7fb37d'  
+#ec2_server_image: 'ami-0323c3dd2da7fb37d'  	# us-east-1 AMI
+ec2_server_image: 'ami-06fcc1f0bc2c8943f'	# us-west-1 AMI
+ec2_server_ansible_ssh_user: 'ec2-user'
+ec2_server_region: 'us-west-1'
+ec2_server_pem_path: ''
+
+ec2_server_keypair: ''
+ec2_instance_id: ''
+ec2_server_name: ''
+
+required_vars:
+  - ec2_server_image
+  - ec2_server_ansible_ssh_user
+  - ec2_server_region

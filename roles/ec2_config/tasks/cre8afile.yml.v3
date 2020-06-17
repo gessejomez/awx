@@ -1,0 +1,22 @@
+---
+  - name: AWX playbook 2 cre8 /home/ec2-user/HelloWorld/HelloAgain/HelloAgainWorld.txt
+    hosts: localhost
+    tasks:
+
+    - name: Create dir /home/ec2-user/HelloWorld/HelloAgain
+      file:
+        path: /home/ec2-user/HelloWorld/HelloAgain
+        state: directory
+
+    - name: create mastery.txt with sample text
+      lineinfile:
+        path: /home/ec2-user/HelloWorld/HelloAgain/HelloAgainWorld.txt
+        line: 'Created /home/ec2-user/HelloWorld/HelloAgain/HelloAgainWorld.txt with Ansible!'
+        create: yes
+
+
+    - name: "long listing of all files with human readable size /tmp/mastery/"
+      shell: "ls -lahR /home/ec2-user/HelloWorld/"
+      register: "output"
+
+    - debug: var=output.stdout_lines
