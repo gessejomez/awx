@@ -1,0 +1,9 @@
+---
+# Enable ntpd.service
+
+- name: Enable ntpd.service
+  shell: systemctl enable ntpd.service
+  register: enable_mode
+
+- debug: var=enable_mode
+ 

@@ -1,0 +1,9 @@
+---
+# Stop ntpd.service
+
+- name: Stop ntpd.service
+  shell: systemctl stop ntpd.service
+  register: stop_mode
+
+- debug: var=stop_mode
+ 

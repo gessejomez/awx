@@ -1,0 +1,6 @@
+---
+- name: Install NTP
+  hosts: all
+  become: true
+  roles:
+    - role: ntp

@@ -1,0 +1,9 @@
+---
+- name: Install NTP
+  hosts: all
+  become: true
+  roles:
+    - role: ntp
+      vars:
+        ntp_servers:
+          - ntp.pool.org

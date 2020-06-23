@@ -1,0 +1,37 @@
+---
+# Stop ntpd.service
+- name: Stop ntpd.service
+  shell: systemctl start ntpd.service
+  register: stop_mode
+  when: "service_state == 'stop'"  
+
+- debug: var=stop_mode
+ 
+
+# Start ntpd.service
+- name: Start ntpd.service
+  shell: systemctl start ntpd.service
+  register: start_mode
+  when: "service_state == 'start'"
+
+- debug: var=start_mode
+ 
+  
+- include_tasks: enable.yml
+# Enable ntpd.service
+- name: Enable ntpd.service
+  shell: systemctl enable ntpd.service
+  register: enable_mode
+  when: "service_state == 'enable'"
+
+- debug: var=enable_mode
+
+ 
+- include_tasks: disable.yml
+# Disable ntpd.service
+- name: Disable ntpd.service
+  shell: systemctl disable ntpd.service
+  register: disable_mode
+  when: "service_state == 'disable'"
+
+- debug: var=disable_mode

@@ -1,0 +1,6 @@
+---
+- name: Install Java
+  hosts: "{{target}}"
+  roles:
+    - role: java
+

@@ -1,0 +1,14 @@
+---
+- name: Generate ntp.conf file
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+  notify: restart ntp
+  when: ntp_manage_config
+
+- debug: var=ntp_manage_config
+
+# ERROR!
+# TASK [ntp : Generate ntp.conf file] ********************************************
+# fatal: [3.101.82.103]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'ntp_driftfile' is undefined"}
+

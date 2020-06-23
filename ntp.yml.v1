@@ -1,0 +1,8 @@
+---
+- name: Install NTP
+  hosts: "{{target}}"
+  roles:
+    - role: ntp
+      vars:
+        ntp_servers:
+          - ntp.pool.org

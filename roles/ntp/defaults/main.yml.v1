@@ -1,0 +1,16 @@
+---
+ntp_enabled: true
+# from /usr/share/zoneinfo
+ntp_timezone: America/Chicago
+
+ntp_manage_config: false
+
+# NTP server area configuration (leave empty for 'Worldwide').
+# See: http://support.ntp.org/bin/view/Servers/NTPPoolServers
+ntp_area: ''
+ntp_servers:
+  - "time-co.afsiep.net"
+  - "time-va.afsiep.net"
+ntp_restrict:
+  - "127.0.0.1"
+  - "::1"

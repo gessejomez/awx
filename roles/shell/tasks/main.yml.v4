@@ -1,0 +1,15 @@
+---
+- include_tasks: stop.yml
+  when: "service_state == 'stop'"  
+
+- include_tasks: start.yml
+  when: "service_state == 'start'"
+  
+- include_tasks: disable.yml
+  when: "service_state == 'disable'"
+  
+- include_tasks: enable.yml
+  when: "service_state == 'enable'"
+  
+- include_tasks: restart.yml
+  when: "service_state == 'restart'"

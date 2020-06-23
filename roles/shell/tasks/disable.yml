@@ -1,0 +1,9 @@
+---
+# Disable ntp.service
+
+- name: Disable ntp service
+  shell: systemctl disable ntpd.service
+  register: disable_mode
+
+- debug: var=disable_mode
+ 

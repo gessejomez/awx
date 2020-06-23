@@ -1,0 +1,23 @@
+---
+ntp_enabled: true
+# from /usr/share/zoneinfo
+ntp_timezone: America/Chicago
+
+#ntp_manage_config: false
+ntp_manage_config: true
+
+# NTP server area configuration (leave empty for 'Worldwide').
+# See: http://support.ntp.org/bin/view/Servers/NTPPoolServers
+ntp_area: ''
+ntp_servers:
+  - "mickey server 0.amazon.pool.ntp.org iburst"
+  - "donald server 1.amazon.pool.ntp.org iburst"
+  - "shaggy server 2.amazon.pool.ntp.org iburst"
+  - "scooby server 3.amazon.pool.ntp.org iburst"
+
+ntp_restrict:
+  - "127.0.0.1"
+  - "::1"
+
+- debug: var=ntp_servers
+

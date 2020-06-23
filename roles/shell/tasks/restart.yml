@@ -1,0 +1,9 @@
+---
+# Restart ntpd.service
+
+- name: Restart ntpd.service
+  shell: systemctl restart ntpd.service
+  register: restart_mode
+
+- debug: var=restart_mode
+ 

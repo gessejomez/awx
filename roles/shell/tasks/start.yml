@@ -1,0 +1,9 @@
+---
+# Start ntpd.service
+
+- name: Start ntpd.service
+  shell: systemctl start ntpd.service
+  register: start_mode
+
+- debug: var=start_mode
+ 
