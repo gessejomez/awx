@@ -1,0 +1,5 @@
+---
+- name: "Configure EC2 Servers"
+  hosts: all
+  roles:
+    - role: syncpush

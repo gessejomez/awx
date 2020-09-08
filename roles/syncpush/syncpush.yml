@@ -1,0 +1,9 @@
+- name: Sync Push task - Executed from Source host to Target Host
+  hosts: "source_host"
+  tasks:
+    - name: Copy the file from Source to Target using Method Push
+      synchronize:
+        src: "{{ files }}"
+        dest: "{{ files }}"
+        mode: push
+      delegate_to: "target_host"
