@@ -1,0 +1,7 @@
+---
+- name: Running a shell command
+  hosts: "{{target}}"
+  gather_facts: no
+  tasks:
+    - name: Run shell
+      shell: "{{ run_command }}"
